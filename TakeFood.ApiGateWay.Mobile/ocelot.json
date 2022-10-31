@@ -2,7 +2,20 @@
   "Routes": [
     // Authen service
     {
-      "UpstreamPathTemplate": "/SignIn/{everything}",
+      "UpstreamPathTemplate": "/SignIn",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "authen",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefoodauthentication.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/SignUp"
+    },
+    {
+      "UpstreamPathTemplate": "/SignUp",
       "UpstreamHttpMethod": [ "POST" ],
       "DownstreamScheme": "https",
       "SwaggerKey": "authen",
@@ -15,21 +28,54 @@
       "DownstreamPathTemplate": "/SignUp/{everything}"
     },
     {
-      "UpstreamPathTemplate": "/SignUp/{everything}",
+      "UpstreamPathTemplate": "/GetUserInfo",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "authen",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefoodauthentication.azurewebsites.net",
+          "Port": 7287
+        }
+      ],
+      "DownstreamPathTemplate": "/GetUserInfo",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      },
+      "AddHeadersToRequest": {
+        "Uid": "Claims[UId] > value"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/UpdateInfo",
       "UpstreamHttpMethod": [ "POST" ],
       "DownstreamScheme": "https",
       "SwaggerKey": "authen",
       "DownstreamHostAndPorts": [
         {
           "Host": "takefoodauthentication.azurewebsites.net",
-          "Port": 443
+          "Port": 7287
         }
       ],
-      "DownstreamPathTemplate": "/SignUp/{everything}"
+      "DownstreamPathTemplate": "/UpdateInfo",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      },
+      "AddHeadersToRequest": {
+        "Uid": "Claims[UId] > value"
+      }
     },
     // Store service
     {
-      "UpstreamPathTemplate": "/GetNearBy/{everything}",
+      "UpstreamPathTemplate": "/GetNearBy",
       "UpstreamHttpMethod": [ "POST" ],
       "DownstreamScheme": "https",
       "SwaggerKey": "store",
@@ -39,7 +85,17 @@
           "Port": 443
         }
       ],
-      "DownstreamPathTemplate": "/GetNearBy/{everything}"
+      "DownstreamPathTemplate": "/GetNearBy",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      },
+      "AddHeadersToRequest": {
+        "Uid": "Claims[UId] > value"
+      }
     },
     {
       "UpstreamPathTemplate": "/FilterNearByWithCategory/{everything}",
@@ -52,10 +108,20 @@
           "Port": 443
         }
       ],
-      "DownstreamPathTemplate": "/FilterNearByWithCategory/{everything}"
+      "DownstreamPathTemplate": "/FilterNearByWithCategory/{everything}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      },
+      "AddHeadersToRequest": {
+        "Uid": "Claims[UId] > value"
+      }
     },
     {
-      "UpstreamPathTemplate": "/GetStore/{everything}",
+      "UpstreamPathTemplate": "/GetStore?{everything}",
       "UpstreamHttpMethod": [ "GET" ],
       "DownstreamScheme": "https",
       "SwaggerKey": "store",
@@ -65,7 +131,17 @@
           "Port": 443
         }
       ],
-      "DownstreamPathTemplate": "/GetStore/{everything}"
+      "DownstreamPathTemplate": "/GetStore?{everything}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      },
+      "AddHeadersToRequest": {
+        "Uid": "Claims[UId] > value"
+      }
     },
     {
       "UpstreamPathTemplate": "/FindStore?{everything}",
@@ -78,7 +154,17 @@
           "Port": 443
         }
       ],
-      "DownstreamPathTemplate": "/FindStore?{everything}"
+      "DownstreamPathTemplate": "/FindStore?{everything}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      },
+      "AddHeadersToRequest": {
+        "Uid": "Claims[UId] > value"
+      }
     }
   ],
   "GlobalConfiguration": {

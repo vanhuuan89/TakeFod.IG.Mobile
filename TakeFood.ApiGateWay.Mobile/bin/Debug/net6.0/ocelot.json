@@ -2,7 +2,20 @@
   "Routes": [
     // Authen service
     {
-      "UpstreamPathTemplate": "/SignIn/{everything}",
+      "UpstreamPathTemplate": "/SignIn",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "authen",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefoodauthentication.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/SignUp"
+    },
+    {
+      "UpstreamPathTemplate": "/SignUp",
       "UpstreamHttpMethod": [ "POST" ],
       "DownstreamScheme": "https",
       "SwaggerKey": "authen",
@@ -15,17 +28,27 @@
       "DownstreamPathTemplate": "/SignUp/{everything}"
     },
     {
-      "UpstreamPathTemplate": "/SignUp/{everything}",
-      "UpstreamHttpMethod": [ "POST" ],
+      "UpstreamPathTemplate": "/GetUserInfo",
+      "UpstreamHttpMethod": [ "GET" ],
       "DownstreamScheme": "https",
       "SwaggerKey": "authen",
       "DownstreamHostAndPorts": [
         {
-          "Host": "takefoodauthentication.azurewebsites.net",
-          "Port": 443
+          "Host": "localhost",
+          "Port": 7287
         }
       ],
-      "DownstreamPathTemplate": "/SignUp/{everything}"
+      "DownstreamPathTemplate": "/GetUserInfo",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      },
+      "AddHeadersToRequest": {
+        "Uid": "Claims[UId] > value"
+      }
     },
     // Store service
     {
@@ -39,7 +62,14 @@
           "Port": 443
         }
       ],
-      "DownstreamPathTemplate": "/GetNearBy/{everything}"
+      "DownstreamPathTemplate": "/GetNearBy/{everything}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      }
     },
     {
       "UpstreamPathTemplate": "/FilterNearByWithCategory/{everything}",
@@ -52,7 +82,14 @@
           "Port": 443
         }
       ],
-      "DownstreamPathTemplate": "/FilterNearByWithCategory/{everything}"
+      "DownstreamPathTemplate": "/FilterNearByWithCategory/{everything}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      }
     },
     {
       "UpstreamPathTemplate": "/GetStore/{everything}",
@@ -65,7 +102,14 @@
           "Port": 443
         }
       ],
-      "DownstreamPathTemplate": "/GetStore/{everything}"
+      "DownstreamPathTemplate": "/GetStore/{everything}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      }
     },
     {
       "UpstreamPathTemplate": "/FindStore?{everything}",
@@ -78,7 +122,14 @@
           "Port": 443
         }
       ],
-      "DownstreamPathTemplate": "/FindStore?{everything}"
+      "DownstreamPathTemplate": "/FindStore?{everything}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      }
     }
   ],
   "GlobalConfiguration": {

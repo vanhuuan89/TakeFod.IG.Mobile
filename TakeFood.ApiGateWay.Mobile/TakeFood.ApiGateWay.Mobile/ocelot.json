@@ -1,0 +1,111 @@
+{
+  "Routes": [
+    // Authen service
+    {
+      "UpstreamPathTemplate": "/SignIn/{everything}",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "authen",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefoodauthentication.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/SignUp/{everything}"
+    },
+    {
+      "UpstreamPathTemplate": "/SignUp/{everything}",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "authen",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefoodauthentication.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/SignUp/{everything}"
+    },
+    // Store service
+    {
+      "UpstreamPathTemplate": "/GetNearBy/{everything}",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "store",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefoodstoreservice.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/GetNearBy/{everything}"
+    },
+    {
+      "UpstreamPathTemplate": "/FilterNearByWithCategory/{everything}",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "store",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefoodstoreservice.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/FilterNearByWithCategory/{everything}"
+    },
+    {
+      "UpstreamPathTemplate": "/GetStore/{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "store",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefoodstoreservice.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/GetStore/{everything}"
+    },
+    {
+      "UpstreamPathTemplate": "/FindStore?{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "store",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefoodstoreservice.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/FindStore?{everything}"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:7239"
+  },
+  "SwaggerEndPoints": [
+    {
+      "Key": "authen",
+      "TransformByOcelotConfig": false,
+      "Config": [
+        {
+          "Name": "TakeFood.AuthenticationService",
+          "Version": "1.0",
+          "Url": "https://takefoodauthentication.azurewebsites.net/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "store",
+      "TransformByOcelotConfig": false,
+      "Config": [
+        {
+          "Name": "TakeFood.StoreService",
+          "Version": "1.0",
+          "Url": "https://takefoodstoreservice.azurewebsites.net/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ]
+}

@@ -12,7 +12,7 @@
           "Port": 443
         }
       ],
-      "DownstreamPathTemplate": "/SignUp"
+      "DownstreamPathTemplate": "/SignIn"
     },
     {
       "UpstreamPathTemplate": "/SignUp",
@@ -165,6 +165,144 @@
       "AddHeadersToRequest": {
         "Uid": "Claims[UId] > value"
       }
+    },
+    {
+      "UpstreamPathTemplate": "/AddAddress",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "authen",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefoodauthentication.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/AddAddress",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      },
+      "AddHeadersToRequest": {
+        "Uid": "Claims[UId] > value"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/CreateOrder",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "userorder",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefooduserorder.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/CreateOrder",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      },
+      "AddHeadersToRequest": {
+        "Uid": "Claims[UId] > value"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/GetVoucher?{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "voucher",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefoodvoucherservice.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/GetVoucher?{everything}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      },
+      "AddHeadersToRequest": {
+        "Uid": "Claims[UId] > value"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/GetOrderdetail?{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "userorder",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefooduserorder.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/GetOrderdetail?{everything}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      },
+      "AddHeadersToRequest": {
+        "Uid": "Claims[UId] > value"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/GetOrders?{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "userorder",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefooduserorder.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/GetOrders?{everything}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      },
+      "AddHeadersToRequest": {
+        "Uid": "Claims[UId] > value"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/Food/GetFoodViewMobile?{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "store",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefooduserorder.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Food/GetFoodViewMobile?{everything}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      },
+      "AddHeadersToRequest": {
+        "Uid": "Claims[UId] > value"
+      }
     }
   ],
   "GlobalConfiguration": {
@@ -190,6 +328,28 @@
           "Name": "TakeFood.StoreService",
           "Version": "1.0",
           "Url": "https://takefoodstoreservice.azurewebsites.net/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "userorder",
+      "TransformByOcelotConfig": false,
+      "Config": [
+        {
+          "Name": "TakeFood.UserOrderService",
+          "Version": "1.0",
+          "Url": "https://takefooduserorder.azurewebsites.net/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "voucher",
+      "TransformByOcelotConfig": false,
+      "Config": [
+        {
+          "Name": "TakeFood.VoucherService",
+          "Version": "1.0",
+          "Url": "https://takefoodvoucherservice.azurewebsites.net/swagger/v1/swagger.json"
         }
       ]
     }

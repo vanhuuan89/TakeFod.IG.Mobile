@@ -288,7 +288,7 @@
       "SwaggerKey": "store",
       "DownstreamHostAndPorts": [
         {
-          "Host": "takefooduserorder.azurewebsites.net",
+          "Host": "takefoodstoreservice.azurewebsites.net",
           "Port": 443
         }
       ],

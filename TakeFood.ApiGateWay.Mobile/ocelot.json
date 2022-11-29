@@ -35,7 +35,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "takefoodauthentication.azurewebsites.net",
-          "Port": 7287
+          "Port": 443
         }
       ],
       "DownstreamPathTemplate": "/GetUserInfo",
@@ -58,7 +58,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "takefoodauthentication.azurewebsites.net",
-          "Port": 7287
+          "Port": 443
         }
       ],
       "DownstreamPathTemplate": "/UpdateInfo",

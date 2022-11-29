@@ -52,7 +52,7 @@
     },
     {
       "UpstreamPathTemplate": "/UpdateInfo",
-      "UpstreamHttpMethod": [ "POST" ],
+      "UpstreamHttpMethod": [ "PUT" ],
       "DownstreamScheme": "https",
       "SwaggerKey": "authen",
       "DownstreamHostAndPorts": [

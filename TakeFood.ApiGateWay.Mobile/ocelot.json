@@ -343,9 +343,6 @@
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
       },
-      "RouteClaimsRequirement": {
-        "User": "User"
-      },
       "AddHeadersToRequest": {
         "Uid": "Claims[UId] > value"
       }

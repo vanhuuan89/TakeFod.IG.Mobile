@@ -339,6 +339,47 @@
         }
       ],
       "DownstreamPathTemplate": "/GetAccessToken?{everything}"
+    },
+    //Review
+    {
+      "UpstreamPathTemplate": "/CreateReview",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "review",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefoodreviewservice.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/CreateReview",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/GetReviews?{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "review",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefoodreviewservice.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/GetReviews?{everything}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "User": "User"
+      }
     }
   ],
   "GlobalConfiguration": {
@@ -386,6 +427,17 @@
           "Name": "TakeFood.VoucherService",
           "Version": "1.0",
           "Url": "https://takefoodvoucherservice.azurewebsites.net/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "review",
+      "TransformByOcelotConfig": false,
+      "Config": [
+        {
+          "Name": "TakeFood.ReviewService",
+          "Version": "1.0",
+          "Url": "https://takefoodreviewservice.azurewebsites.net/swagger/v1/swagger.json"
         }
       ]
     }

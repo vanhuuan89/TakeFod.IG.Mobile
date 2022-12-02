@@ -338,14 +338,7 @@
           "Port": 443
         }
       ],
-      "DownstreamPathTemplate": "/GetAccessToken?{everything}",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
-      },
-      "AddHeadersToRequest": {
-        "Uid": "Claims[UId] > value"
-      }
+      "DownstreamPathTemplate": "/GetAccessToken?{everything}"
     }
   ],
   "GlobalConfiguration": {

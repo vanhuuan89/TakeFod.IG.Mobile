@@ -28,6 +28,45 @@
       "DownstreamPathTemplate": "/SignUp/{everything}"
     },
     {
+      "UpstreamPathTemplate": "/Active?{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "authen",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefoodauthentication.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/Active?{everything}"
+    },
+    {
+      "UpstreamPathTemplate": "/ForgetPass?{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "authen",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefoodauthentication.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/ForgetPass?{everything}"
+    },
+    {
+      "UpstreamPathTemplate": "/RenewPassword",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "authen",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefoodauthentication.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/RenewPassword"
+    },
+    {
       "UpstreamPathTemplate": "/GetUserInfo",
       "UpstreamHttpMethod": [ "GET" ],
       "DownstreamScheme": "https",

@@ -12,6 +12,18 @@ builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnCh
 builder.Services.AddOcelot(builder.Configuration);
 builder.Services.AddSwaggerForOcelot(builder.Configuration);
 builder.Services.AddControllers();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:3000")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
+        }
+    );
+});
 string key = builder.Configuration.GetSection("JwtConfig:Secret").Value;
 
 builder.Services.AddAuthentication().AddJwtBearer("Bearer", options =>
@@ -26,9 +38,11 @@ builder.Services.AddAuthentication().AddJwtBearer("Bearer", options =>
     };
 });
 var app = builder.Build();
+app.UseCors("AllowAll");
 app.UseSwaggerForOcelotUI(opt =>
 {
     opt.PathToSwaggerGenerator = "/swagger/docs";
 });
+app.UseWebSockets();
 await app.UseOcelot();
 app.Run();

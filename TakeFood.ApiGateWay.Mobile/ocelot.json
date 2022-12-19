@@ -474,6 +474,32 @@
       ],
       "UpstreamPathTemplate": "/notifysocket",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+    },
+    {
+      "UpstreamPathTemplate": "/NotifyPay?{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "userorder",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefood-userorderservice.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/NotifyPay?{everything}",
+    },
+    {
+      "UpstreamPathTemplate": "/NotifyCancel?{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "SwaggerKey": "userorder",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "takefood-userorderservice.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/NotifyCancel?{everything}"
     }
   ],
   "GlobalConfiguration": {

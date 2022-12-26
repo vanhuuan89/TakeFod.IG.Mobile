@@ -25,7 +25,7 @@
           "Port": 443
         }
       ],
-      "DownstreamPathTemplate": "/SignUp/{everything}"
+      "DownstreamPathTemplate": "/SignUp"
     },
     {
       "UpstreamPathTemplate": "/Active?{everything}",
